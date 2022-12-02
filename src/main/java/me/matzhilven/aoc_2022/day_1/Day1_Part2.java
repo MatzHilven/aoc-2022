@@ -11,7 +11,7 @@ import java.util.List;
 public class Day1_Part2 {
 
     public static void main(String[] args) throws IOException {
-        File inputFile = new File("C:\\Users\\hilve\\Documents\\Coding\\Java\\aoc-2022\\src\\main\\java\\me\\matzhilven\\aoc_2022\\day_1\\input.txt");
+        File inputFile = new File("C:\\Users\\hilve\\Documents\\Coding\\Java\\aoc-2022\\src\\main\\resources\\input_1.txt");
         FileReader fileReader = new FileReader(inputFile);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
 
@@ -32,12 +32,11 @@ public class Day1_Part2 {
         fileReader.close();
 
         all.sort(Comparator.reverseOrder());
-        all = all.subList(0,3);
 
         System.out.println("Max Calories 1: " + all.get(0));
         System.out.println("Max Calories 2: " + all.get(1));
         System.out.println("Max Calories 3: " + all.get(2));
-        System.out.println("Total: " + all.stream().mapToInt(Integer::intValue).sum());
+        System.out.println("Total: " + all.subList(0,3).stream().mapToInt(Integer::intValue).sum());
     }
 
 }
