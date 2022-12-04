@@ -50,10 +50,18 @@ public final class Range<T> implements Serializable {
         }
     }
 
-    private static enum ComparableComparator implements Comparator {
+    public boolean containsRange(Range<T> otherRange) {
+        if (otherRange == null) {
+            return false;
+        } else {
+            return this.contains(otherRange.minimum) && this.contains(otherRange.maximum);
+        }
+    }
+
+    private enum ComparableComparator implements Comparator {
         INSTANCE;
 
-        private ComparableComparator() {
+        ComparableComparator() {
         }
 
         public int compare(Object obj1, Object obj2) {

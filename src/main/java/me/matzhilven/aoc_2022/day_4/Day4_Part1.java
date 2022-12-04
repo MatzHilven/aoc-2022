@@ -1,6 +1,7 @@
 package me.matzhilven.aoc_2022.day_4;
 
 import me.matzhilven.aoc_2022.utils.FileUtils;
+import me.matzhilven.aoc_2022.utils.Range;
 
 import java.util.List;
 
@@ -19,11 +20,10 @@ public class Day4_Part1 {
             int secondSectionMin = Integer.parseInt(sections[1].split("-")[0]);
             int secondSectionMax = Integer.parseInt(sections[1].split("-")[1]);
 
-            if ((firstSectionMin <= secondSectionMin && firstSectionMax >= secondSectionMax)
-                    || (firstSectionMin >= secondSectionMin && firstSectionMax <= secondSectionMax)
-            ) {
-                reAssignments++;
-            }
+            Range<Integer> firstRange = Range.between(firstSectionMin, firstSectionMax);
+            Range<Integer> secondRange = Range.between(secondSectionMin, secondSectionMax);
+
+            if (firstRange.containsRange(secondRange) || secondRange.containsRange(firstRange)) reAssignments++;
         }
 
         System.out.println(reAssignments);
