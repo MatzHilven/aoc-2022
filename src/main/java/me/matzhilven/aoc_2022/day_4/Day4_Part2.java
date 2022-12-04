@@ -1,7 +1,8 @@
 package me.matzhilven.aoc_2022.day_4;
 
 import me.matzhilven.aoc_2022.utils.FileUtils;
-import org.apache.commons.lang3.Range;
+import me.matzhilven.aoc_2022.utils.Range;
+
 
 import java.util.List;
 
